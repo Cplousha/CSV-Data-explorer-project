@@ -18,15 +18,3 @@ No paid APIs, no AWS, no external accounts needed.
 
 Getting started
 See the setup instructions provided alongside this project for step-by-step install/run instructions.
-
-Quick version:
-
-pip install -r requirements.txt
-streamlit run app.py
-Then try uploading sample_data.csv to see the app in action.
-
-Project files
-app.py — the Streamlit application
-requirements.txt — Python dependencies
-sample_data.csv — example data for testing
-.gitignore — files Git should ignore
