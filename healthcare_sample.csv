@@ -1,0 +1,4 @@
+patient_id,age,gender,diagnosis,visit_date,provider,cost
+P001,42,M,Hypertension,2026-06-01,Dr. Smith,240
+P002,35,F,Diabetes,2026-06-03,Dr. Jones,310
+P003,67,M,Heart Disease,2026-06-04,Dr. Lee,820
