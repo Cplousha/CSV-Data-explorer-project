@@ -52,9 +52,30 @@ TABLE_NAME = "cleaned_data"
 # ---------------------------------------------------------
 st.header("1. Upload your CSV file")
 
-uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+# A quick "try it now" button so visitors (like recruiters!) can test the app
+# instantly without needing to find and upload their own file first.
+col_upload, col_sample = st.columns([3, 1])
 
-if uploaded_file is not None:
+with col_upload:
+    uploaded_file = st.file_uploader("Choose a CSV file", type=["csv"])
+
+with col_sample:
+    st.write("")  # small vertical spacer so the button lines up nicely
+    st.write("")
+    use_sample = st.button("🧪 Try with sample data")
+
+if use_sample:
+    try:
+        # This file lives right next to app.py in the GitHub repo, so it's
+        # always available on the deployed app -- no upload needed.
+        df = pd.read_csv("sample_data.csv")
+        st.session_state.df = df
+        st.session_state.cleaned = False
+        st.success("Loaded the built-in sample dataset! Scroll down to explore it.")
+    except Exception as e:
+        st.error(f"Could not load the sample dataset: {e}")
+
+elif uploaded_file is not None:
     try:
         # Try to read the uploaded file as a CSV.
         df = pd.read_csv(uploaded_file)
